@@ -27,23 +27,26 @@ Make the helper script executable:
 bashchmod +x ~/.clawdbot/skills/salesforce/salesforce-helper.sh
 Prerequisites
 1. Install Salesforce CLI
-bash# via npm (recommended)
+```bash# via npm (recommended)
 npm install -g @salesforce/cli
-
+```
 # or via Homebrew
 brew install salesforce-cli
 2. Authenticate to Salesforce
-bash# Interactive (opens browser)
+```bash# Interactive (opens browser)
 sf org login web --alias myorg
-
-# Headless (for servers)
+```
+# Headless (for servers)\
+```
 sf org login jwt \
   --client-id <consumer_key> \
   --jwt-key-file <path_to_key.pem> \
   --username <your_username> \
   --alias myorg
+```
 3. Configure Moltbot (optional)
 Add to ~/.clawdbot/moltbot.json:
+```
 json{
   "skills": {
     "entries": {
@@ -56,6 +59,7 @@ json{
     }
   }
 }
+```
 Usage Examples
 Via chat with Moltbot:
 
@@ -84,7 +88,7 @@ clawdhub publish
 Customization
 Add Custom Objects
 Edit SKILL.md to add instructions for custom Salesforce objects:
-markdown### Query Custom Object
+### Query Custom Object
 ```bash
 sf data query --query "SELECT Id, Name, Custom_Field__c FROM Custom_Object__c" --target-org myorg
 ```
